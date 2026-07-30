@@ -1,19 +1,45 @@
 aid: kompyte
 name: Kompyte
-description: Kompyte is a company surfaced as a portfolio company of 500-global and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: Kompyte is a competitive intelligence and sales enablement platform, part of Semrush,
+  that automates the tracking of competitors across their websites, pricing pages, product releases,
+  content, ads, social channels and review sites. Captured changes are scored and summarized into
+  AI-generated daily digests and continuously updated sales battlecards, so revenue teams can see
+  what rivals changed and how to respond in live deals. Kompyte also supports win/loss capture and
+  delivers intelligence into the tools sellers already use through CRM, chat, sales-enablement and
+  file-storage integrations including Salesforce, HubSpot, Slack, Microsoft Teams, Highspot,
+  Showpad, Trello, Google Drive and Microsoft OneDrive. Kompyte publishes no public developer API,
+  developer portal or API documentation as of this profile.
 url: https://raw.githubusercontent.com/api-evangelist/kompyte/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://www.kompyte.com/hubfs/Kompyte_by-Semrush_Logo-Orange%26Black.png
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - 500-global
 x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier-reason: no-public-api
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
+- Competitive Intelligence
+- Sales Enablement
+- Market Intelligence
+- Battlecards
+- Win Loss Analysis
+- SaaS
+- Marketing
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -23,3 +49,32 @@ maintainers:
 common:
 - type: Website
   url: https://kompyte.com
+- type: Blog
+  url: https://www.kompyte.com/blog
+- type: BlogRSS
+  url: https://www.kompyte.com/blog/rss.xml
+- type: Pricing
+  url: https://www.kompyte.com/plans
+- type: SignUp
+  url: https://www.kompyte.com/register
+- type: Login
+  url: https://phi.kompyte.pro/
+- type: TermsOfService
+  url: https://www.kompyte.com/terms-conditions
+- type: PrivacyPolicy
+  url: https://www.kompyte.com/privacy-policy
+- type: Integrations
+  url: https://www.kompyte.com/integrations
+- type: CaseStudies
+  url: https://www.kompyte.com/case-studies/
+- type: WellKnown
+  url: well-known/kompyte-well-known.yml
+- type: LLMsTxt
+  url: llms/kompyte-llms.txt
+- type: DomainSecurity
+  url: security/kompyte-domain-security.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
