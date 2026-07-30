@@ -1,0 +1,38 @@
+# Kompyte
+
+> Kompyte is a competitive intelligence and sales enablement platform, part of Semrush. It
+> automatically tracks competitors across websites, pricing pages, product releases, content, ads,
+> social channels and review sites, scores what changed, and turns it into AI-generated daily
+> digests and continuously updated sales battlecards for revenue teams. Kompyte publishes no public
+> developer API, developer portal or API documentation as of 2026-07-19.
+
+## Product
+
+- [Kompyte](https://www.kompyte.com/): Competitive intelligence platform homepage.
+- [Integrations](https://www.kompyte.com/integrations): Salesforce, HubSpot, Slack, Microsoft Teams, Highspot, Showpad, Trello, Google Drive, Microsoft OneDrive. No public API or webhooks are documented.
+- [Plans and pricing](https://www.kompyte.com/plans): Subscription plans.
+- [Register](https://www.kompyte.com/register): Sign up.
+- [Application login](https://phi.kompyte.pro/): Customer application.
+
+## Content
+
+- [Blog](https://www.kompyte.com/blog): Competitive intelligence and sales enablement writing.
+- [Blog RSS](https://www.kompyte.com/blog/rss.xml): Feed.
+- [Case studies](https://www.kompyte.com/case-studies/): Customer stories.
+
+## Legal
+
+- [Terms and conditions](https://www.kompyte.com/terms-conditions)
+- [Privacy policy](https://www.kompyte.com/privacy-policy)
+
+## API Evangelist artifacts
+
+- [APIs.json](https://raw.githubusercontent.com/api-evangelist/kompyte/refs/heads/main/apis.yml): Machine-readable profile.
+- [Well-known index](https://raw.githubusercontent.com/api-evangelist/kompyte/refs/heads/main/well-known/kompyte-well-known.yml): Probed discovery surface (all 404).
+- [Domain security](https://raw.githubusercontent.com/api-evangelist/kompyte/refs/heads/main/security/kompyte-domain-security.yml): Probed TLS/HSTS/DNS posture.
+
+## Notes
+
+- No OpenAPI, AsyncAPI, GraphQL schema, SDK, CLI, MCP server, changelog or status page was found on any Kompyte host as of 2026-07-19.
+- Probed and unresolved: api.kompyte.com, docs.kompyte.com, developers.kompyte.com, help.kompyte.com, status.kompyte.com.
+- There is no github.com/kompyte organization (404).
