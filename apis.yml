@@ -1,26 +1,37 @@
 aid: kompyte
 name: Kompyte
-description: Kompyte is a competitive intelligence and sales enablement platform, part of Semrush,
-  that automates the tracking of competitors across their websites, pricing pages, product releases,
+description: Kompyte is a competitive intelligence and sales enablement platform sold as a Semrush
+  product, and Adobe-owned since Adobe completed its acquisition of Semrush on 28 April 2026. It
+  automates the tracking of competitors across their websites, pricing pages, product releases,
   content, ads, social channels and review sites. Captured changes are scored and summarized into
   AI-generated daily digests and continuously updated sales battlecards, so revenue teams can see
   what rivals changed and how to respond in live deals. Kompyte also supports win/loss capture and
   delivers intelligence into the tools sellers already use through CRM, chat, sales-enablement and
   file-storage integrations including Salesforce, HubSpot, Slack, Microsoft Teams, Highspot,
-  Showpad, Trello, Google Drive and Microsoft OneDrive. Kompyte publishes no public developer API,
-  developer portal or API documentation as of this profile.
+  Showpad, Guru, Gong, Trello, Google Drive and Microsoft OneDrive, and lets teams embed a hosted
+  battlecard view into those tools with an iframe. Kompyte sells three contact-sales tiers with
+  published product quotas and commits to a 99.9% uptime SLA, but publishes no public developer
+  API, developer portal, API documentation, SDK, webhook catalog or agent surface; the application
+  backend at phi.kompyte.pro/api/ answers HTTP 403 "LOGIN REQUIRED" to every anonymous request.
 url: https://raw.githubusercontent.com/api-evangelist/kompyte/refs/heads/main/apis.yml
 accessModel:
-  pricing: unknown
-  onboarding: unknown
+  pricing: contact-sales
+  onboarding: sales-assisted
   trial: false
   try_now: false
   public: false
-  label: Unknown
-  confidence: low
-  source: []
-  generated: '2026-07-22'
-  method: derived
+  label: Contact Sales
+  confidence: high
+  source:
+  - https://www.kompyte.com/plans
+  - https://www.kompyte.com/register
+  generated: '2026-08-13'
+  method: searched
+  note: >-
+    Three published tiers (Essentials, Professional, Unlimited) with concrete product quotas but
+    no list price on any of them; onboarding and a dedicated customer success manager are bundled
+    into every tier, which is a sales-assisted motion by design. No free tier, no self-serve
+    checkout, no API access on any tier.
 image: https://www.kompyte.com/hubfs/Kompyte_by-Semrush_Logo-Orange%26Black.png
 x-type: company
 x-source: vc-portfolio
@@ -30,7 +41,7 @@ x-tier: stub
 x-tier-reason: no-public-api
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-19'
+modified: '2026-08-13'
 tags:
 - Company
 - Competitive Intelligence
@@ -67,14 +78,57 @@ common:
   url: https://www.kompyte.com/integrations
 - type: CaseStudies
   url: https://www.kompyte.com/case-studies/
-- type: WellKnown
-  url: well-known/kompyte-well-known.yml
+- type: Support
+  url: https://helpcenter.kompyte.pro/en/
+- type: HelpCenter
+  url: https://helpcenter.kompyte.pro/en/
+- type: SLA
+  url: https://www.kompyte.com/sla/
 - type: LLMsTxt
   url: llms/kompyte-llms.txt
 - type: DomainSecurity
   url: security/kompyte-domain-security.yml
+- type: Plans
+  url: plans/kompyte-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/kompyte-rate-limits.yml
+- type: Lifecycle
+  url: lifecycle/kompyte-lifecycle.yml
+- type: Conformance
+  url: conformance/kompyte-conformance.yml
+- type: Components
+  url: components/kompyte-components.yml
 x-enrichment:
-  date: '2026-07-19'
-  status: backfilled
+  date: '2026-08-13'
+  status: minimal
+  artifacts_added: 6
   pass: local-v1
-  note: backfilled from .gitignore signal + verified work evidence
+  note: >-
+    Round two. STEP 0b contract discovery run against every Kompyte-controlled host. The WellKnown
+    pointer was REMOVED: every probed /.well-known/* path returns 404 or an SPA/HubSpot shell, so
+    the pointer was asserting a discovery surface Kompyte does not serve. No SDKs, Security,
+    SecurityTxt, Compliance, StatusPage, Deprecation, Documentation, GettingStarted,
+    GitHubOrganization, Authentication, AgentCard or MCPServer pointer is emitted — none of those
+    surfaces exists.
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    Kompyte ships only an end-user SaaS product — its sole programmatic surface is the
+    session-gated application backend at phi.kompyte.pro/api/, which returns HTTP 403
+    {"error":"LOGIN REQUIRED"} for every path including /api/openapi.json, and no plan tier,
+    help-center article or sitemap URL offers API access to buy or documentation to read.
+  evidence:
+  - url: https://phi.kompyte.pro/api/openapi.json
+    status: 403
+  - url: https://www.kompyte.com/developers
+    status: 404
+  - url: https://phi.kompyte.pro/openapi.json
+    status: 404
+  - url: https://www.kompyte.com/.well-known/agent-card.json
+    status: 404
+  - url: https://github.com/kompyte
+    status: 404
+  - url: https://registry.npmjs.org/-/v1/search?text=kompyte
+    status: 200
+  checked: '2026-08-13'
