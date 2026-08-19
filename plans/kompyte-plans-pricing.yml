@@ -1,0 +1,78 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.kompyte.com/plans
+docs: https://www.kompyte.com/plans
+plan_count: 3
+currency: null
+billing_period: annual
+pricing_model: contact-sales
+notes: >-
+  Kompyte publishes three named tiers with concrete product quotas but no list price on any of
+  them — every tier routes to a "contact sales" motion, and the page states that plans are sold
+  annually with shorter terms available on premium. Quotas below are the ones printed on the
+  plans page verbatim; they are PRODUCT quotas (companies tracked, seats, URLs, mentions,
+  keywords), not API rate limits — Kompyte publishes no public API, so there is no API quota to
+  record. All three tiers include a dedicated customer success manager and onboarding at no
+  additional cost.
+plans:
+- name: Essentials
+  price: null
+  currency: null
+  period: annual
+  pricing: contact-sales
+  limits:
+    companies_tracked: 10
+    user_licenses: 25
+    urls_per_company: 50
+    mentions_per_month: 20000
+    keywords_tracked: 25
+  included:
+  - Unlimited battlecards and reports
+  - Unlimited listening alerts
+  - Dedicated customer success manager
+  - Onboarding included
+- name: Professional
+  price: null
+  currency: null
+  period: annual
+  pricing: contact-sales
+  limits:
+    companies_tracked: 20
+    user_licenses: 100
+    urls_per_company: 100
+    mentions_per_month: 20000
+    keywords_tracked: 100
+  included:
+  - Unlimited battlecards and reports
+  - Unlimited listening alerts
+  - Unlimited companies database
+  - Dedicated customer success manager
+  - Onboarding included
+- name: Unlimited
+  price: null
+  currency: null
+  period: annual
+  pricing: contact-sales
+  limits:
+    companies_tracked: unlimited
+    user_licenses: unlimited
+    urls_per_company: 150
+    mentions_per_month: 20000
+    keywords_tracked: 200
+  included:
+  - Unlimited battlecards and reports
+  - Unlimited listening alerts
+  - Unlimited companies database
+  - Single Sign-On (SSO)
+  - Advanced user permission management
+  - Dedicated customer success manager
+  - Onboarding included
+overage: null
+overage_note: >-
+  No overage or metered-usage pricing is published. Exceeding a tier quota is handled through the
+  sales/CSM relationship rather than a published rate.
+api_access:
+  offered: false
+  note: >-
+    No tier lists API access, an API add-on, or developer entitlements. API access is not a
+    purchasable line item on any published Kompyte plan.

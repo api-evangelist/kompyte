@@ -1,0 +1,25 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://www.kompyte.com/plans; https://helpcenter.kompyte.pro/en/; probes of
+  https://phi.kompyte.pro/api/*
+limit_count: 0
+note: >-
+  Kompyte publishes no public API, therefore no API rate limits. Nothing in the help center (13
+  collections walked), on the plans page, or on the 230-URL kompyte.com sitemap documents a
+  request rate, burst, quota, throttle or 429 behavior for any programmatic surface. The only
+  live programmatic surface found — the application backend at https://phi.kompyte.pro/api/* —
+  answers HTTP 403 {"error":"LOGIN REQUIRED"} to every anonymous request and emits NO rate-limit
+  headers at all, so no runtime signal could be observed either. Recorded as an honest zero.
+  Kompyte DOES publish per-tier PRODUCT quotas (companies tracked, seats, tracked URLs, 20,000
+  mentions/month, tracked keywords). Those are subscription entitlements enforced by the product,
+  not request-rate limits on an API, and they are captured in plans/kompyte-plans-pricing.yml
+  rather than being restated here as rate limits.
+limits: []
+response_headers:
+  observed: []
+  documented: []
+  note: >-
+    No X-RateLimit-*, RateLimit-* or Retry-After header was returned by any probed Kompyte
+    endpoint, and none is documented.
+exhaustion_status_code: null

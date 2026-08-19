@@ -1,0 +1,56 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://helpcenter.kompyte.pro/en/articles/4484352-how-to-embed-battlecards-into-highspot-showpad-or-other-sales-enablement-tools;
+  https://helpcenter.kompyte.pro/en/articles/6761858-how-to-embed-battlecards-into-highspot;
+  https://helpcenter.kompyte.pro/en/articles/6761897-how-to-embed-battlecards-into-guru;
+  https://helpcenter.kompyte.pro/en/articles/3867610-kompyte-base-integrations
+scope: >-
+  Kompyte ships no SDK, no element/component library and no loader script. The one client-side
+  distribution surface it does document is an IFRAME EMBED of a hosted battlecard view, pasted
+  into whatever tool the sales team already lives in. It is a hosted/prebuilt surface, not a
+  component library, and it is recorded here as exactly that — an authenticated hosted view
+  addressed by URL, with no configuration API, no JavaScript hook and no events.
+loader_libraries: []
+families:
+- family: Battlecards embed
+  kind: hosted-iframe
+  description: >-
+    A Kompyte-hosted battlecard view embedded in a third-party surface via a plain HTML iframe.
+    Kompyte publishes the embed markup in its help center; sizing is done with the standard
+    iframe width/height attributes. There are no query parameters, callbacks or postMessage
+    contract documented.
+  embed_pattern: '<iframe src="https://phi.kompyte.pro/sales/battlecards/"></iframe>'
+  host: phi.kompyte.pro
+  auth: >-
+    Session-based. The embedded view is served from the same authenticated application host as
+    the Kompyte web app (phi.kompyte.pro), so a viewer must have a Kompyte session. No embed
+    token, signed URL or public-share mode is documented. Probed anonymously on 2026-08-13:
+    https://phi.kompyte.pro/sales/battlecards/ returned HTTP 404 (the single-page-app shell),
+    confirming the embed target is not publicly reachable without a session.
+  configuration:
+  - name: width
+    type: html-attribute
+    note: Standard iframe attribute; documented as the way to resize the embed.
+  - name: height
+    type: html-attribute
+    note: Standard iframe attribute; documented as the way to resize the embed.
+  documented_destinations:
+  - Highspot
+  - Showpad
+  - Guru
+  - CMS solutions (generic; "using an embed code")
+  sources:
+  - https://helpcenter.kompyte.pro/en/articles/4484352-how-to-embed-battlecards-into-highspot-showpad-or-other-sales-enablement-tools
+  - https://helpcenter.kompyte.pro/en/articles/6761858-how-to-embed-battlecards-into-highspot
+  - https://helpcenter.kompyte.pro/en/articles/6761897-how-to-embed-battlecards-into-guru
+gaps:
+- >-
+  No JavaScript SDK, web component, or npm/CDN-distributed loader — the npm registry returns zero
+  results for "kompyte" and PyPI returns 404, so there is nothing to version or pin.
+- >-
+  No documented embed authentication (signed URL, embed token, JWT), so the embed cannot be
+  shown to an unauthenticated viewer or to an agent.
+- >-
+  No postMessage/event contract, so a host application cannot react to anything happening inside
+  the embed.

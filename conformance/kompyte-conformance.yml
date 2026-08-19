@@ -1,0 +1,110 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://helpcenter.kompyte.pro/en/articles/5278290-how-to-enable-and-configure-sso-in-kompyte;
+  https://helpcenter.kompyte.pro/en/articles/8651293-gpt-security-kompyte;
+  https://www.kompyte.com/plans
+scope: >-
+  Kompyte publishes no public API, so every API-shaped standard below is asserted false on
+  evidence of absence rather than on a contract we could read. The one standards surface Kompyte
+  does document is enterprise single sign-on, and its help center answers the SCIM question
+  explicitly.
+standards:
+- id: saml2
+  name: SAML 2.0 (SP-initiated SSO)
+  conforms: true
+  confidence: medium
+  evidence: >-
+    The Kompyte SSO help article instructs admins to share "IdP parameters" with IT and to
+    "upload your metadata XML file", after which Kompyte issues a custom login URL — the SAML 2.0
+    service-provider configuration shape. The article never names the protocol, so this is read
+    from the artifact it asks for rather than from a stated claim. SSO is a paid capability
+    listed only on the Unlimited tier.
+  source: https://helpcenter.kompyte.pro/en/articles/5278290-how-to-enable-and-configure-sso-in-kompyte
+- id: scim
+  name: SCIM 2.0 user provisioning
+  conforms: false
+  confidence: high
+  evidence: >-
+    Answered directly in the SSO FAQ. Q: "What type of user provisioning is supported? SCIM,
+    Just-in-time, etc.?" A: "Just-in-Time". Kompyte provisions users on first SSO login and does
+    not implement SCIM. Deprovisioning is also non-standard — a deleted user's data is retained
+    against a "deleted user" record and is not recovered if the user is re-provisioned.
+  source: https://helpcenter.kompyte.pro/en/articles/5278290-how-to-enable-and-configure-sso-in-kompyte
+- id: oauth2
+  name: OAuth 2.0 authorization for third-party API access
+  conforms: false
+  confidence: high
+  evidence: >-
+    No OAuth authorization server, no /.well-known/oauth-authorization-server (404 on
+    www.kompyte.com and phi.kompyte.pro), and no developer app registration. Kompyte's own
+    outbound integrations (Salesforce, HubSpot, Slack, Teams, Gong) are configured in-product;
+    Kompyte is the OAuth client to those platforms, never the authorization server.
+  source: well-known/kompyte-well-known.yml
+- id: oidc
+  name: OpenID Connect
+  conforms: false
+  confidence: high
+  evidence: /.well-known/openid-configuration returns 404 on every Kompyte host probed.
+  source: well-known/kompyte-well-known.yml
+- id: openapi
+  name: OpenAPI
+  conforms: false
+  confidence: high
+  evidence: >-
+    No OpenAPI or Swagger document at any probed location on www.kompyte.com or phi.kompyte.pro,
+    including the API host root paths. The application backend at phi.kompyte.pro/api/* answers
+    HTTP 403 {"error":"LOGIN REQUIRED"} for every path including /api/openapi.json.
+  source: well-known/kompyte-well-known.yml
+- id: asyncapi
+  name: AsyncAPI / documented webhooks
+  conforms: false
+  confidence: high
+  evidence: >-
+    No AsyncAPI document and no webhook catalog. The help center integrations collection (12
+    articles) documents in-product connectors and embed codes only; the string "webhook" appears
+    zero times on the collection page.
+  source: https://helpcenter.kompyte.pro/en/collections/2896767-integrations
+- id: mcp
+  name: Model Context Protocol server
+  conforms: false
+  confidence: high
+  evidence: >-
+    No hosted MCP endpoint and no stdio package. "Kompyte GPT" is an in-product LLM
+    summarization feature (daily summaries, auto-summarize, document summarization) that calls
+    OpenAI outbound; it is not an agent-callable surface Kompyte exposes.
+  source: https://helpcenter.kompyte.pro/en/collections/6204648-kompyte-gpt
+- id: a2a
+  name: A2A Agent Card
+  conforms: false
+  confidence: high
+  evidence: >-
+    /.well-known/agent-card.json and the legacy /.well-known/agent.json both 404 on
+    www.kompyte.com and phi.kompyte.pro.
+  source: well-known/kompyte-well-known.yml
+- id: rfc9457
+  name: RFC 9457 Problem Details
+  conforms: false
+  confidence: medium
+  evidence: >-
+    The only observable error envelope is the application backend's
+    {"error":"LOGIN REQUIRED"} at HTTP 403 — a bare JSON error string, not
+    application/problem+json.
+  source: https://phi.kompyte.pro/api/
+- id: rfc9116
+  name: RFC 9116 security.txt
+  conforms: false
+  confidence: high
+  evidence: >-
+    404 on kompyte.com and phi.kompyte.pro. The 200 at helpcenter.kompyte.pro/.well-known/
+    security.txt is Intercom's own document (bugcrowd.com/intercom), served by the help-center
+    platform for the vanity host, and is not credited to Kompyte.
+  source: well-known/kompyte-well-known.yml
+certifications:
+  published: []
+  note: >-
+    No SOC 2, ISO 27001, PCI DSS, HIPAA or FedRAMP certification is named anywhere on
+    kompyte.com or in the help center. The security article that exists covers AI data handling
+    (what is and is not sent to OpenAI) and names no certification or audit. trust.kompyte.com,
+    security.kompyte.com and trust.kompyte.pro do not resolve in DNS. Because no certification is
+    published, NO Compliance pointer is emitted.

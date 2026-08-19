@@ -1,38 +1,62 @@
 # Kompyte
 
-> Kompyte is a competitive intelligence and sales enablement platform, part of Semrush. It
+> Kompyte is a competitive intelligence and sales enablement platform, a Semrush product — and,
+> since Adobe completed its acquisition of Semrush on 28 April 2026, an Adobe-owned one. It
 > automatically tracks competitors across websites, pricing pages, product releases, content, ads,
 > social channels and review sites, scores what changed, and turns it into AI-generated daily
-> digests and continuously updated sales battlecards for revenue teams. Kompyte publishes no public
-> developer API, developer portal or API documentation as of 2026-07-19.
+> digests and continuously updated sales battlecards for revenue teams. Kompyte publishes NO public
+> developer API, no developer portal, no API documentation, no SDK and no agent surface as of
+> 2026-08-13. This file records what is actually there, including the negatives, so an agent does
+> not go looking for a contract that does not exist.
 
 ## Product
 
 - [Kompyte](https://www.kompyte.com/): Competitive intelligence platform homepage.
-- [Integrations](https://www.kompyte.com/integrations): Salesforce, HubSpot, Slack, Microsoft Teams, Highspot, Showpad, Trello, Google Drive, Microsoft OneDrive. No public API or webhooks are documented.
-- [Plans and pricing](https://www.kompyte.com/plans): Subscription plans.
+- [Plans](https://www.kompyte.com/plans): Three tiers — Essentials, Professional, Unlimited. No list price on any of them; every tier is a contact-sales motion sold annually. Quotas are product quotas (companies tracked, seats, tracked URLs, 20,000 mentions/month, tracked keywords), not API quotas. No tier includes API access.
+- [Integrations](https://www.kompyte.com/integrations): Salesforce, HubSpot, Slack, Microsoft Teams, Highspot, Showpad, Trello, Google Drive, Microsoft OneDrive. The help center additionally documents Guru and Gong. All are in-product connectors configured in the Kompyte UI. Kompyte is the OAuth *client* to those platforms; it is not an authorization server and exposes no connector API of its own.
+- [Gong integration](https://www.kompyte.com/gong-integration): Competitor mentions and call snippets flow from Gong into Kompyte.
 - [Register](https://www.kompyte.com/register): Sign up.
 - [Application login](https://phi.kompyte.pro/): Customer application.
+
+## Support and documentation
+
+- [Help Center](https://helpcenter.kompyte.pro/en/): Intercom-hosted product documentation, 13 collections (getting started, battlecards, reports, integrations, automation workflows, listening alerts, users and access, Kompyte GPT, tools, knowledge base, proprietary metrics, collecting and curating intel, contributing external intel). Product documentation only — there is no API or developer section.
+- [SLA](https://www.kompyte.com/sla/): 99.9% uptime commitment (43.12 min/month allowance), 5%/7%/9% service credits by availability band, credits claimed by email to success@kompyte.com within two billing cycles.
+- [SSO configuration](https://helpcenter.kompyte.pro/en/articles/5278290-how-to-enable-and-configure-sso-in-kompyte): Enterprise SSO by uploading an IdP metadata XML file (SAML 2.0 shape; the protocol is never named in the docs). Just-in-Time user provisioning — the FAQ answers explicitly that SCIM is NOT supported. SSO is listed only on the Unlimited tier.
 
 ## Content
 
 - [Blog](https://www.kompyte.com/blog): Competitive intelligence and sales enablement writing.
 - [Blog RSS](https://www.kompyte.com/blog/rss.xml): Feed.
 - [Case studies](https://www.kompyte.com/case-studies/): Customer stories.
+- [Reports](https://www.kompyte.com/reports/): Research reports and white papers.
 
 ## Legal
 
 - [Terms and conditions](https://www.kompyte.com/terms-conditions)
 - [Privacy policy](https://www.kompyte.com/privacy-policy)
 
+## What is NOT here (verified 2026-08-13, not assumed)
+
+- **No OpenAPI, Swagger, GraphQL SDL or AsyncAPI.** Probed on the marketing host AND the API host root: `/openapi.json`, `/swagger.json`, `/v1/openapi.json`, `/api-docs`, `/docs`, `/redoc`, `/graphql` — all 404 or an HTML shell on both www.kompyte.com and phi.kompyte.pro.
+- **A live private backend exists but is closed.** `https://phi.kompyte.pro/api/*` answers HTTP 403 `{"error":"LOGIN REQUIRED"}` to every anonymous request, including `/api/openapi.json` and `/api/schema`. It is an Express service behind a Google Cloud load balancer serving the Kompyte web app — a session-gated application backend, not an offered API. No spec, no docs, no key issuance, no plan entitlement.
+- **No MCP server** — no hosted endpoint, no stdio package. "Kompyte GPT" is an in-product OpenAI-backed summarization feature, not an agent-callable surface.
+- **No A2A agent card** — `/.well-known/agent-card.json` and the legacy `/.well-known/agent.json` both 404 on every Kompyte host.
+- **No .well-known documents.** security.txt, openid-configuration, oauth-authorization-server, api-catalog and ai-plugin.json all 404 on kompyte.com and phi.kompyte.pro. The 200 at `helpcenter.kompyte.pro/.well-known/security.txt` is **Intercom's** document (bugcrowd.com/intercom), served by the help-center platform for the vanity host — it is not Kompyte's and is not credited as such.
+- **No SDKs or packages.** npm, PyPI, RubyGems, crates.io and Packagist all return zero first-party results for "kompyte". There is no github.com/kompyte organization (404).
+- **No status page.** status.kompyte.com and status.kompyte.pro do not resolve; `kompyte.statuspage.io` 200s only because Atlassian redirects it to its own Statuspage marketing page.
+- **No changelog or release notes.** Nothing on the 230-URL kompyte.com sitemap, nothing on the application host, nothing in the help center.
+- **No published certifications.** No SOC 2, ISO 27001, PCI, HIPAA or FedRAMP claim anywhere on the site or help center; trust.kompyte.com does not resolve.
+- **No webhooks.** The string "webhook" does not appear on the help center integrations collection.
+
 ## API Evangelist artifacts
 
 - [APIs.json](https://raw.githubusercontent.com/api-evangelist/kompyte/refs/heads/main/apis.yml): Machine-readable profile.
-- [Well-known index](https://raw.githubusercontent.com/api-evangelist/kompyte/refs/heads/main/well-known/kompyte-well-known.yml): Probed discovery surface (all 404).
-- [Domain security](https://raw.githubusercontent.com/api-evangelist/kompyte/refs/heads/main/security/kompyte-domain-security.yml): Probed TLS/HSTS/DNS posture.
-
-## Notes
-
-- No OpenAPI, AsyncAPI, GraphQL schema, SDK, CLI, MCP server, changelog or status page was found on any Kompyte host as of 2026-07-19.
-- Probed and unresolved: api.kompyte.com, docs.kompyte.com, developers.kompyte.com, help.kompyte.com, status.kompyte.com.
-- There is no github.com/kompyte organization (404).
+- [Plans and pricing](https://raw.githubusercontent.com/api-evangelist/kompyte/refs/heads/main/plans/kompyte-plans-pricing.yml): The three tiers with their published quotas.
+- [Lifecycle](https://raw.githubusercontent.com/api-evangelist/kompyte/refs/heads/main/lifecycle/kompyte-lifecycle.yml): SLA terms, and the verified absence of a status page, versioning policy and changelog.
+- [Conformance](https://raw.githubusercontent.com/api-evangelist/kompyte/refs/heads/main/conformance/kompyte-conformance.yml): SAML/SCIM/OAuth/OpenAPI/MCP/A2A posture with evidence for each.
+- [Components](https://raw.githubusercontent.com/api-evangelist/kompyte/refs/heads/main/components/kompyte-components.yml): The one client-side surface — an iframe embed of a hosted battlecard view.
+- [Packages](https://raw.githubusercontent.com/api-evangelist/kompyte/refs/heads/main/packages/kompyte-packages.yml): The registry probes behind the zero.
+- [Rate limits](https://raw.githubusercontent.com/api-evangelist/kompyte/refs/heads/main/rate-limits/kompyte-rate-limits.yml): An honest zero, with the reason.
+- [Well-known index](https://raw.githubusercontent.com/api-evangelist/kompyte/refs/heads/main/well-known/kompyte-well-known.yml): Every probed discovery path and its status.
+- [Domain security](https://raw.githubusercontent.com/api-evangelist/kompyte/refs/heads/main/security/kompyte-domain-security.yml): TLS/HSTS/DNSSEC/CAA/SPF/DMARC on both kompyte.com and kompyte.pro.

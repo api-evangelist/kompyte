@@ -1,13 +1,27 @@
-generated: '2026-07-19'
+generated: '2026-08-13'
 method: probed
-source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+source: live DNS/TLS/HTTP probes of the kompyte.com marketing host and the kompyte.pro application host
 hosts:
 - host: kompyte.com
   https: true
   tls_version: TLSv1.3
-  cert_expires: Aug 31 04:59:51 2026 GMT
+  cert_expires: Oct 29 11:55:02 2026 GMT
   hsts: true
   hsts_max_age: 31536000
+  note: HubSpot-hosted marketing site (www.kompyte.com CNAMEs to sites.hubspot.net).
+- host: phi.kompyte.pro
+  https: true
+  tls_version: TLSv1.3
+  cert_issuer: Google Trust Services WR3
+  cert_expires: Oct 11 11:01:23 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+  hsts_include_subdomains: true
+  note: >-
+    Customer application. The SPA is served from Google Cloud Storage (server: UploadServer) with
+    no HSTS on the static object responses; the API backend behind the same Google Cloud load
+    balancer (x-powered-by: Express) DOES send
+    strict-transport-security: max-age=31536000; includeSubDomains.
 domains:
 - domain: kompyte.com
   dnssec: false
@@ -15,3 +29,20 @@ domains:
   spf: true
   dmarc: true
   dmarc_policy: none
+- domain: kompyte.pro
+  dnssec: false
+  caa: []
+  spf: true
+  spf_record: v=spf1 include:spf.mailjet.com -all
+  dmarc: false
+  dmarc_policy: null
+  note: >-
+    The application domain has no DMARC record at _dmarc.kompyte.pro and no CAA record. SPF is
+    published and is strict (-all).
+findings:
+- No CAA record on either domain — any public CA may issue for kompyte.com or kompyte.pro.
+- No DNSSEC on either domain.
+- >-
+  kompyte.com publishes DMARC at p=none (monitor only, no enforcement); kompyte.pro publishes no
+  DMARC record at all, even though it is the domain the customer application and its login live
+  on.

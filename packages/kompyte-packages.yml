@@ -1,0 +1,44 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  registry.npmjs.org search API; pypi.org/pypi/kompyte/json; rubygems.org search API;
+  crates.io search API; packagist.org search API; github.com/kompyte;
+  https://www.kompyte.com/ and https://helpcenter.kompyte.pro/
+package_count: 0
+official_count: 0
+note: >-
+  No first-party Kompyte client library exists on any public registry, and there is no Kompyte
+  GitHub organization to hold one. This is a checked zero, not an unchecked gap — every registry
+  below was queried unauthenticated on 2026-08-13 and returned an empty result set. No SDKs
+  pointer is emitted, because emitting one would assert a client-library surface Kompyte does not
+  ship.
+packages: []
+registry_probes:
+- registry: npm
+  query: https://registry.npmjs.org/-/v1/search?text=kompyte
+  status: 200
+  results: 0
+- registry: pypi
+  query: https://pypi.org/pypi/kompyte/json
+  status: 404
+  results: 0
+- registry: rubygems
+  query: https://rubygems.org/api/v1/search.json?query=kompyte
+  status: 200
+  results: 0
+- registry: crates.io
+  query: https://crates.io/api/v1/crates?q=kompyte
+  status: 200
+  results: 0
+- registry: packagist
+  query: https://packagist.org/search.json?q=kompyte
+  status: 200
+  results: 0
+  note: >-
+    Returned unrelated fuzzy matches only (e.g. contao-altcha-antispam); no package published by
+    or naming Kompyte.
+- registry: github
+  query: https://github.com/kompyte
+  status: 404
+  results: 0
+  note: No Kompyte GitHub organization exists, so no GitHubOrganization pointer is emitted.

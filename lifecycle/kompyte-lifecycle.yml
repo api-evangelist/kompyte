@@ -1,0 +1,70 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.kompyte.com/sla/
+docs: https://www.kompyte.com/sla/
+scope: >-
+  Product/platform lifecycle only. Kompyte publishes no public API, so there is no API versioning
+  scheme, no deprecation policy, no Sunset/Deprecation header practice and no deprecated
+  operations to derive. What Kompyte DOES publish is a customer-facing SLA, captured here.
+sla:
+  published: true
+  url: https://www.kompyte.com/sla/
+  uptime_commitment: '99.9%'
+  unavailability_allowance: 43.12 minutes per month
+  credits:
+  - availability: '>97.9% and <99.9%'
+    credit: '5%'
+  - availability: '>96.9% and <97.9%'
+    credit: '7%'
+  - availability: '<96.9%'
+    credit: '9%'
+  credit_terms: >-
+    Credits apply to future payments only and are only issued when the credit exceeds $1 USD.
+  claim_process: >-
+    Claims are emailed to success@kompyte.com with "SLA Credit Request" in the subject line,
+    within two billing cycles of the incident, including incident dates/times, account handles
+    and supporting error logs.
+  maintenance_windows:
+  - type: emergency
+    notice: immediate / minimal notice
+  - type: preventative
+    notice: performed during low-peak hours where possible
+  - type: planned
+    notice: 5 days where feasible; 48 hours advance notice for maintenance announcements
+  support_response_sla: null
+  support_response_note: >-
+    The SLA defines maintenance notice periods but does not publish a support first-response or
+    resolution time.
+status_page:
+  published: false
+  probed:
+  - url: https://status.kompyte.com
+    status: 0
+    note: DNS does not resolve.
+  - url: https://status.kompyte.pro/
+    status: 0
+    note: DNS does not resolve.
+  - url: https://kompyte.statuspage.io
+    status: 200
+    note: >-
+      FALSE POSITIVE — the 200 is an Atlassian redirect to
+      https://www.atlassian.com/software/statuspage (the Statuspage marketing page), not a
+      Kompyte status page. No StatusPage pointer is emitted.
+versioning:
+  scheme: null
+  note: >-
+    No public API and no published versioning policy. The one version marker Kompyte publishes is
+    a product release announcement on its blog (kPHI 2.0), not an API version.
+deprecation:
+  policy_published: false
+  sunset_header: false
+  note: >-
+    No deprecation policy, no RFC 8594 Sunset/Deprecation header practice, and no deprecated
+    operations — there is no public contract for any of these to apply to. No Deprecation pointer
+    is emitted.
+changelog:
+  published: false
+  note: >-
+    No dated changelog, release-notes page or "What's new" surface was found on kompyte.com
+    (230-URL sitemap scanned), on the phi.kompyte.pro application host, or in the 13-collection
+    Intercom help center. Product news appears only as undated marketing blog posts.

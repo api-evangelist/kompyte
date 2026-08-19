@@ -1,25 +1,136 @@
-generated: '2026-07-19'
-method: searched
-source: live probe of https://www.kompyte.com/.well-known/*
-host: https://www.kompyte.com
+generated: '2026-08-13'
+method: probed
+source: live probes of /.well-known/* and contract-discovery paths on every Kompyte-controlled host
+hosts:
+- https://www.kompyte.com
+- https://phi.kompyte.pro
+- https://helpcenter.kompyte.pro
 notes: >-
-  Every probed .well-known path returned 404. Kompyte publishes no security.txt, no OIDC/OAuth
-  discovery document, no api-catalog and no ai-plugin manifest. Recorded as valid negative
-  discovery data.
+  Round two widened the probe from the HubSpot marketing site to the two other hosts Kompyte
+  actually operates: phi.kompyte.pro (the customer application) and helpcenter.kompyte.pro (the
+  Intercom-hosted help center). Every /.well-known/* path on kompyte.com and phi.kompyte.pro
+  returned 404 or an SPA/HubSpot HTML shell. NO WellKnown pointer is emitted from this file — a
+  recorded absence is data, not a served discovery surface.
+  IMPORTANT NEGATIVE: helpcenter.kompyte.pro DOES return HTTP 200 on /.well-known/security.txt,
+  but the document is INTERCOM'S, not Kompyte's — "Contact: https://bugcrowd.com/intercom",
+  "Contact: mailto:security@intercom.com". helpcenter.kompyte.pro is a vanity host pointed at
+  Intercom's hosted help-center platform, so that security.txt describes Intercom's disclosure
+  program. It is recorded here as a false positive and deliberately NOT credited to Kompyte, and
+  no SecurityTxt or Security pointer is emitted.
+  A 404 body on www.kompyte.com is a HubSpot 404 HTML page; a 404 body on phi.kompyte.pro is the
+  single-page-app shell (34,781 bytes, identical for every path). Neither is a document.
 documents:
-- path: /.well-known/security.txt
+- host: https://www.kompyte.com
+  path: /.well-known/security.txt
   status: 404
-- path: /.well-known/openid-configuration
+  document: false
+- host: https://www.kompyte.com
+  path: /.well-known/openid-configuration
   status: 404
-- path: /.well-known/oauth-authorization-server
+  document: false
+- host: https://www.kompyte.com
+  path: /.well-known/oauth-authorization-server
   status: 404
-- path: /.well-known/api-catalog
+  document: false
+- host: https://www.kompyte.com
+  path: /.well-known/api-catalog
   status: 404
-- path: /.well-known/ai-plugin.json
+  document: false
+- host: https://www.kompyte.com
+  path: /.well-known/ai-plugin.json
   status: 404
-- path: /llms.txt
+  document: false
+- host: https://www.kompyte.com
+  path: /.well-known/agent-card.json
   status: 404
-- path: /robots.txt
+  document: false
+- host: https://www.kompyte.com
+  path: /.well-known/agent.json
+  status: 404
+  document: false
+- host: https://www.kompyte.com
+  path: /llms.txt
+  status: 404
+  document: false
+- host: https://www.kompyte.com
+  path: /openapi.json
+  status: 404
+  document: false
+- host: https://www.kompyte.com
+  path: /api-docs
+  status: 404
+  document: false
+- host: https://www.kompyte.com
+  path: /api
+  status: 404
+  document: false
+- host: https://www.kompyte.com
+  path: /developers
+  status: 404
+  document: false
+- host: https://www.kompyte.com
+  path: /robots.txt
   status: 200
-- path: /sitemap.xml
+  document: true
+- host: https://www.kompyte.com
+  path: /sitemap.xml
   status: 200
+  document: true
+  note: 230 URLs; no developer, API, docs, changelog or status URL among them.
+- host: https://phi.kompyte.pro
+  path: /.well-known/agent-card.json
+  status: 404
+  document: false
+- host: https://phi.kompyte.pro
+  path: /.well-known/agent.json
+  status: 404
+  document: false
+- host: https://phi.kompyte.pro
+  path: /.well-known/security.txt
+  status: 404
+  document: false
+- host: https://phi.kompyte.pro
+  path: /robots.txt
+  status: 404
+  document: false
+- host: https://phi.kompyte.pro
+  path: /llms.txt
+  status: 404
+  document: false
+- host: https://phi.kompyte.pro
+  path: /openapi.json
+  status: 404
+  document: false
+- host: https://phi.kompyte.pro
+  path: /swagger.json
+  status: 404
+  document: false
+- host: https://phi.kompyte.pro
+  path: /v1/openapi.json
+  status: 404
+  document: false
+- host: https://phi.kompyte.pro
+  path: /api-docs
+  status: 404
+  document: false
+- host: https://phi.kompyte.pro
+  path: /docs
+  status: 404
+  document: false
+- host: https://phi.kompyte.pro
+  path: /redoc
+  status: 404
+  document: false
+- host: https://phi.kompyte.pro
+  path: /graphql
+  status: 404
+  document: false
+- host: https://helpcenter.kompyte.pro
+  path: /.well-known/security.txt
+  status: 200
+  document: false
+  owner: intercom
+  note: >-
+    Served by Intercom's help-center platform for the vanity host, not by Kompyte.
+    Contact: https://bugcrowd.com/intercom / mailto:security@intercom.com. NOT credited to
+    Kompyte.
