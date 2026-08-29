@@ -14,6 +14,17 @@ description: Kompyte is a competitive intelligence and sales enablement platform
   API, developer portal, API documentation, SDK, webhook catalog or agent surface; the application
   backend at phi.kompyte.pro/api/ answers HTTP 403 "LOGIN REQUIRED" to every anonymous request.
 url: https://raw.githubusercontent.com/api-evangelist/kompyte/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: contact-sales
   onboarding: sales-assisted
