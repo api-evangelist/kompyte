@@ -76,3 +76,31 @@ api_access:
   note: >-
     No tier lists API access, an API add-on, or developer entitlements. API access is not a
     purchasable line item on any published Kompyte plan.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - negotiated
+  units: []
+  plans:
+  - name: Essentials
+    access: other
+    model: negotiated
+    model_how: derived
+    units: []
+    periods:
+    - year
+  - name: Professional
+    access: other
+    model: negotiated
+    model_how: derived
+    units: []
+    periods:
+    - year
+  - name: Unlimited
+    access: other
+    model: negotiated
+    model_how: derived
+    units: []
+    periods:
+    - year
