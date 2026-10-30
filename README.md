@@ -64,15 +64,97 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Kompyte is a competitive intelligence and sales enablement platform, part of Semrush, that automates the tracking of competitors across websites, pricing pages, product releases, content, ads, social channels and review sites. Captured changes are scored and summarized into AI-generated daily digests and continuously updated sales battlecards, and delivered into the tools sellers already use through Salesforce, HubSpot, Slack, Microsoft Teams, Highspot, Showpad, Trello, Google Drive and Microsoft OneDrive integrations.
+Kompyte is a competitive intelligence and sales enablement platform sold as a Semrush product, and Adobe-owned since Adobe completed its acquisition of Semrush on 28 April 2026. It automates the tracking of competitors across their websites, pricing pages, product releases, content, ads, social channels and review sites. Captured changes are scored and summarized into AI-generated daily digests and continuously updated sales battlecards, so revenue teams can see what rivals changed and how to respond in live deals. Kompyte also supports win/loss capture and delivers intelligence into the tools sellers already use through CRM, chat, sales-enablement and file-storage integrations including Salesforce, HubSpot, Slack, Microsoft Teams, Highspot, Showpad, Guru, Gong, Trello, Google Drive and Microsoft OneDrive, and lets teams embed a hosted battlecard view into those tools with an iframe. Kompyte sells three contact-sales tiers with published product quotas and commits to a 99.9% uptime SLA, but publishes no public developer API, developer portal, API documentation, SDK, webhook catalog or agent surface; the application backend at phi.kompyte.pro/api/ answers HTTP 403 "LOGIN REQUIRED" to every anonymous request.
 
-**Kompyte publishes no public developer API, developer portal or API documentation as of 2026-07-19.** The enrichment pipeline probed `api.`, `docs.`, `developers.`, `help.` and `status.kompyte.com` (all unresolved), the full `/.well-known/` discovery surface (all 404), `/llms.txt` (404), and `github.com/kompyte` (404). What this repo holds is identity, published web properties, and probed security posture.
+**Areas:** Company · Competitive Intelligence · Sales Enablement · Market Intelligence · Battlecards · Win-Loss Analysis · Software-as-a-Service · Marketing
 
-## Artifacts
+## Kompyte on APIs.io
 
-- `apis.yml` — APIs.json profile
-- `well-known/kompyte-well-known.yml` — probed discovery surface (negative result, recorded)
-- `llms/kompyte-llms.txt` — generated llms.txt
-- `security/kompyte-domain-security.yml` — probed TLS/HSTS/DNSSEC/CAA/SPF/DMARC
+Everything profiled for Kompyte is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/kompyte/](https://apis.io/providers/kompyte/)** — or go straight to one of the APIs or properties below.
 
-Website: https://kompyte.com — Backed by: 500-global
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Kompyte Domain Security](https://apis.io/security/kompyte/kompyte-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Kompyte Plans Pricing](https://apis.io/plans/kompyte/kompyte-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Kompyte Rate Limits](https://apis.io/rate-limits/kompyte/kompyte-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://kompyte.com)
+- [Pricing](https://www.kompyte.com/plans)
+- [Sign up](https://www.kompyte.com/register)
+- [Support](https://helpcenter.kompyte.pro/en/)
+- [Blog](https://www.kompyte.com/blog)
+- [Terms of service](https://www.kompyte.com/terms-conditions)
+- [Privacy policy](https://www.kompyte.com/privacy-policy)
+
+## API Evangelist rating
+
+**Kin Score 24.9** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 55.4 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 7.1 |
+| Access clarity | 76.3 |
+
+**Agent readiness 2.5** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 18.6** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/kompyte/](https://apis.io/providers/kompyte/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Kompyte: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/kompyte/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
